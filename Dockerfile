@@ -26,11 +26,14 @@ ADD Gemfile /home/app/fullConnectAPI/
 ADD Gemfile.lock /home/app/fullConnectAPI/
 ADD start.sh /home/app/fullConnectAPI/
 
+# clean up apt when done.
+run apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*sudo
+
+
 #bundle install
 WORKDIR /home/app/fullConnectAPI
+USER app
 RUN bundle install
 
-# Clean up APT when done.
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*sudo
 
 ENTRYPOINT ['./start.sh']

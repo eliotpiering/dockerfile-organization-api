@@ -18,7 +18,7 @@ RUN /build/ruby2.0.sh
 
 #   Common development headers necessary for many Ruby gems,
 #   e.g. libxml for Nokogiri.
-RUN /build/devheaders.sh
+#RUN /build/devheaders.sh
 
 #make home directory for webapp and add the gemfile
 RUN mkdir /home/app/fullConnectAPI

@@ -28,4 +28,4 @@ RUN bundle install
 # clean up apt when done.
 run apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*sudo
 
-ENTRYPOINT ['./start.sh']
+ENTRYPOINT ['/home/app/fullConnectAPI/start.sh']

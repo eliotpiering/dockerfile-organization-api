@@ -4,8 +4,11 @@ FROM phusion/passenger-ruby20:0.9.14
 ENV HOME /root
 
 # Update the system
-RUN echo "deb http://archive.ubuntu.com/ubuntu/ raring main universe" >> /etc/apt/sources.list
+#RUN echo "deb http://old-releases.ubuntu.com/ubuntu/ raring main universe" >> /etc/apt/sources.list
 RUN apt-get update
+
+# Use baseimage-docker init process
+CMD ["/sbin/my_init"]
 
 #   Build system and git.
 RUN /build/utilities.sh

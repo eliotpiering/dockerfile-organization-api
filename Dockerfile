@@ -19,7 +19,10 @@ RUN /build/ruby2.0.sh
 RUN mkdir /home/app/fullConnectAPI
 ADD Gemfile /home/app/fullConnectAPI/
 ADD Gemfile.lock /home/app/fullConnectAPI/
-ADD start.sh /home/app/fullConnectAPI/
+
+# add startup script to be used by baseimage docker init process
+RUN mkdir -p /etc/my_init.d
+ADD start.sh /etc/my_init.d/start.sh
 
 #bundle install
 WORKDIR /home/app/fullConnectAPI
